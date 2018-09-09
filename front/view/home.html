@@ -1,0 +1,56 @@
+<h1>home</h2>
+
+<table>
+	<thead>
+		<th>ID</th>
+		<th>artist</th>
+		<th>link</th>
+		<th>stock</th>
+		<th>price</th>
+		<th>track</th>
+		<th>add cart</th>
+		<th>detail</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="list in items">
+			<td>{{list.id}}</td>
+			<td>{{list.artist}}</td>
+			<td>{{list.link}}</td>
+			<td>{{list.stock}}</td>
+			<td>{{list.price}}</td>
+			<td>{{list.track}}</td>
+			<td><span ng-click="show(list.id,list.stock,list.price,list.track)">buy</span></td>
+			<td><a href="detail/{{list.id}}">view</a></td>
+		</tr>
+	<tbody>
+</table>
+
+    <nav>
+        <ul class="pagination">
+            <li>
+                <a ng-click="Previous()">
+                    <span>prcious</span>
+                </a>
+            </li>
+            <li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}" >
+                <a ng-click="selectPage(page)" >{{ page }}</a>
+            </li>
+            <li>
+                <a ng-click="Next()">
+                    <span>next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+	
+	
+<div ng-show="checkshow">
+  {{warning}}
+ <input type="number" ng-model="amount" ng-click="warning=''" />
+ <button ng-click="buy()">add to cart</button>
+</div>	
+
+
+<div>
+<span ng-click="clear('cart')">clear cart</span>
+</div>

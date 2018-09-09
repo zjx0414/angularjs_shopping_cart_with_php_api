@@ -1,0 +1,32 @@
+<h1>cart - {{lists.length}}</h2>
+
+<table>
+	<thead>
+		<th>ID</th>
+		<th>track</th>
+		<th>amount</th>
+		<th>price</th>
+
+		<th>update</th>
+		<th>delete</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="list in lists">
+			<td>{{list.id}}</td>
+			<td>{{list.track}}</td>
+			<td>{{list.amount}}</td>
+			<td>{{list.price}}</td>
+			<td>
+				<span ng-click="add(list.id)">add</span>
+				<input type="number" ng-model="amount[list.id]"/>
+				<span ng-click="mince(list.id)">mince</span>
+			</td>
+			<td>
+				<span ng-click="del(list.id)">delete</span>
+			</td>
+		</tr>
+	<tbody>
+</table>
+
+<h1>total cost:{{total | currency }}</h1>
+{{warning}}
